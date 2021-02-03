@@ -102,4 +102,3 @@ async function writeOnGifCaller(message,customMsg){
 }
 
 client.login(process.env.BOT_TOKEN); 
-
