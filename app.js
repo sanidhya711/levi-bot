@@ -92,7 +92,7 @@ client.on("message",message => {
 });
 
 async function writeOnGifCaller(message,customMsg){
-    var gif = await textOnGif({file_path:"/gifs/dance1.gif",textMessage:customMsg,flash:true});
+    var gif = await textOnGif({file_path:"/gifs/cool.gif",textMessage:customMsg});
     const attachment = new MessageAttachment(gif,"nigga.gif");
     var data = await message.channel.send(attachment);
     data.attachments.forEach(function(eeeee){
@@ -101,4 +101,4 @@ async function writeOnGifCaller(message,customMsg){
     message.channel.stopTyping();
 }
 
-client.login(process.env.BOT_TOKEN); 
+client.login("ODAxMDY0NDI4NDg1MjE0MjE4.YAbPYg.C_TBha8_GvaSILLLEIgklorraps"); 
