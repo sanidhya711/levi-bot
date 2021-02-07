@@ -101,4 +101,4 @@ async function writeOnGifCaller(message,customMsg){
     message.channel.stopTyping();
 }
 
-client.login("ODAxMDY0NDI4NDg1MjE0MjE4.YAbPYg.G3dZumEjPCnHudpeiZAnzhM_DHc"); 
+client.login(process.env.BOT_TOKEN); 
