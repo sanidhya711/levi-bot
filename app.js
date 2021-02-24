@@ -4,7 +4,6 @@ const { Client,MessageAttachment } = require("discord.js");
 const client = new Client();
 var alreadyEdited = {};
 const textOnGif = require("text-on-gif");
-
 var commands = {
     eat:{gif:"eat",max:1},
     pat:{gif:"pat",max:1},
@@ -92,7 +91,7 @@ client.on("message",message => {
 });
 
 async function writeOnGifCaller(message,customMsg){
-    var gif = await textOnGif({file_path:"https://i.imgur.com/tj1mFrf.gif",textMessage:customMsg});
+    var gif = await textOnGif({file_path:"/gifs/cool.gif",textMessage:customMsg});
     const attachment = new MessageAttachment(gif,"nigga.gif");
     var data = await message.channel.send(attachment);
     data.attachments.forEach(function(eeeee){
