@@ -47,6 +47,7 @@ var commands = {
 }
 
 client.once("ready",()=>{
+    client.user.setActivity("call me MC'nuggets im dippin in sauce");
     console.log("bot is online");
 });
 
