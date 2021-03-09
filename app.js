@@ -53,10 +53,10 @@ client.once("ready",()=>{
 
 client.on("message",message => {
     if(!message.author.bot){
-        if(message.author.id == "694922150779420793"){
-            message.content = "levi say bich dont u fucking bich me again u ugly slut";
-        }
         var msg = message.content;
+        if(msg.includes("levi") && message.author.id == "694922150779420793"){
+            msg = "levi say bich dont u fucking ping me again u ugly slut";
+        }
         var firstWordIndex = msg.indexOf(" ");
         if(firstWordIndex>0){
             var firstWord = msg.substr(0,firstWordIndex);
