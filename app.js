@@ -54,7 +54,8 @@ client.once("ready",()=>{
 client.on("message",message => {
     if(!message.author.bot){
         var msg = message.content;
-        if(msg.includes("levi") && message.author.id == "694922150779420793"){
+        var temp = msg.toLocaleLowerCase();
+        if(temp.includes("levi") && message.author.id == "694922150779420793"){
             msg = "levi say bich dont u fucking ping me again u ugly slut";
         }
         var firstWordIndex = msg.indexOf(" ");
