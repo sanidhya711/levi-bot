@@ -9,7 +9,7 @@ var commands = {
     pat:{gif:"pat",max:1},
     vibe:{gif:"vibe",max:2},
     run:{gif:"run",max:2},
-    dance:{gif:"dance",max:3},
+    dance:{gif:"dance",max:6},
     kick:{gif:"kick",max:3},
     push:{gif:"push",max:1},
     hatsaale:{gif:"hatsaale",max:1},
@@ -95,7 +95,7 @@ client.on("message",message => {
 });
 
 async function writeOnGifCaller(message,customMsg){
-    var gif = await textOnGif({file_path:"/gifs/cool.gif",textMessage:customMsg});
+    var gif = await textOnGif({file_path:"/gifs/ur gay.gif",textMessage:customMsg});
     const attachment = new MessageAttachment(gif,"nigga.gif");
     var data = await message.channel.send(attachment);
     data.attachments.forEach(function(eeeee){
@@ -104,4 +104,4 @@ async function writeOnGifCaller(message,customMsg){
     message.channel.stopTyping();
 }
 
-client.login(process.env.BOT_TOKEN); 
+client.login("ODAxMDY0NDI4NDg1MjE0MjE4.YAbPYg.9XaFmZsSzRebk93ayDpXlcLxmDw"); 
