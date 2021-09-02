@@ -105,4 +105,4 @@ async function writeOnGifCaller(message,customMsg){
     message.channel.stopTyping();
 }
 
-client.login("ODAxMDY0NDI4NDg1MjE0MjE4.YAbPYg.9XaFmZsSzRebk93ayDpXlcLxmDw"); 
+client.login(process.env.TOKEN); 
