@@ -3,8 +3,8 @@
 const { Client,MessageAttachment } = require("discord.js");
 const client = new Client();
 var alreadyEdited = {};
-const textOnGif = require("text-on-gif");
-var commands = {
+const TextOnGif = require('text-on-gif');
+const commands = {
     eat:{gif:"eat",max:1},
     pat:{gif:"pat",max:1},
     vibe:{gif:"vibe",max:2},
@@ -46,10 +46,22 @@ var commands = {
     bye:{gif:"bye",max:1},
 }
 
-client.once("ready",()=>{
-    client.user.setActivity("call me MC'nuggets im dippin in sauce");
-    console.log("bot is online");
-});
+var gif;
+
+async function init(){
+    gif = new TextOnGif({
+        file_path: Math.random() > 0.1 ?  "gifs/cool.gif" : "https://media0.giphy.com/media/kFgzrTt798d2w/giphy.gif",
+    });
+
+    gif.font_color = "#FFF"
+
+    gif.on('extraction complete',()=>{
+        client.once("ready",()=>{
+            client.user.setActivity("call me MC'nuggets i be dippin in sauce");
+            console.log("bot is online");
+        });
+    });
+}
 
 client.on("message",message => {
     if(!message.author.bot){
@@ -72,7 +84,6 @@ client.on("message",message => {
             }else{
                 var command = msg;
             }
-            console.log(command);
             if((command.toLocaleLowerCase())!="say"){
                 if(commands[command]){
                     var noOfGifs = commands[command].max;
@@ -91,14 +102,15 @@ client.on("message",message => {
                     writeOnGifCaller(message,customMsg);
                 }
             }
+            console.log(command);
         }
     }
 });
 
 async function writeOnGifCaller(message,customMsg){
-    var gif = await textOnGif({file_path:"/gifs/cool.gif",textMessage:customMsg});
-    const attachment = new MessageAttachment(gif,"nigga.gif");
-    var data = await message.channel.send(attachment);
+    const buffer = await gif.textOnGif({text: customMsg,get_as_buffer: true});
+    const attachment = new MessageAttachment(buffer,"nigga.gif");
+    const data = await message.channel.send(attachment);
     data.attachments.forEach(function(eeeee){
         alreadyEdited[customMsg] = eeeee.url;
     });
@@ -106,3 +118,4 @@ async function writeOnGifCaller(message,customMsg){
 }
 
 client.login(process.env.TOKEN); 
+init();
