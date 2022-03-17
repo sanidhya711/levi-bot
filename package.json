@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "text-on-gif": "^2.0.0"
+    "text-on-gif": "^2.0.2"
   }
 }
